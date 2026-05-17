@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshit Mishra — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+
+  <!-- ========== CURSOR GLOW ========== -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ========== LOADING SCREEN ========== -->
+  <div class="loader" id="loader">
+    <div class="loader-bg"></div>
+    <div class="loader-content">
+      <div class="loader-logo">
+        <span class="loader-logo-text">HM</span>
+        <div class="loader-logo-ring ring-1"></div>
+        <div class="loader-logo-ring ring-2"></div>
+        <div class="loader-logo-ring ring-3"></div>
+      </div>
+      <p class="loader-label">Initializing Portfolio<span class="loader-dots">...</span></p>
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill" id="loaderBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CANVAS (PARTICLES) ========== -->
+  <canvas id="starCanvas"></canvas>
+
+  <!-- ========== MUSIC TOGGLE ========== -->
+  <button class="music-btn" id="musicBtn" aria-label="Toggle ambient music">
+    <i class="fas fa-music" id="musicIcon"></i>
+    <span class="music-ripple"></span>
+  </button>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-ambient"></div>
+    <div class="hero-content">
+      <div class="hero-name-wrap">
+        <h1 class="hero-name" id="heroName">
+          <span class="name-line line-harshit" data-text="Harshit">Harshit</span>
+          <span class="name-line line-mishra" data-text="Mishra">Mishra</span>
+        </h1>
+      </div>
+      <div class="hero-role">
+        <span class="role-prefix">&lt;</span>
+        <span class="typed-text" id="typedText"></span>
+        <span class="typed-cursor">|</span>
+        <span class="role-suffix">/&gt;</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#portfolio-section" class="cta-btn scroll-link">
+          <span>Explore Portfolio</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO TEXT + IMAGE SECTION ========== -->
+  <section class="portfolio-section" id="portfolio-section">
+    <div class="portfolio-text-bg" aria-hidden="true">PORTFOLIO</div>
+    <div class="portfolio-image-wrap reveal">
+      <div class="portfolio-glass">
+        <div class="profile-image-container">
+          <img src="profile.jpg" alt="Harshit Mishra" class="profile-img" />
+          <div class="profile-glow-ring"></div>
+          <div class="profile-glow-ring ring-outer"></div>
+        </div>
+        <div class="profile-badge">
+          <span class="badge-dot"></span>
+          Frontend Developer
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SECTION ========== -->
+  <section class="about-section" id="about">
+    <div class="section-header reveal">
+      <span class="section-tag">// ABOUT</span>
+      <h2 class="section-title">Who Am I</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card glass-card reveal">
+        <div class="about-card-icon"><i class="fas fa-code"></i></div>
+        <h3>The Developer</h3>
+        <p>I'm Harshit Mishra — an enthusiastic frontend developer with a passion for crafting visually stunning and functionally precise web experiences. I thrive at the intersection of design and code, where creativity meets logic.</p>
+        <p>An excellent student and fast learner, I'm continuously curious about modern technologies and always eager to push the boundaries of what the web can do.</p>
+      </div>
+      <div class="about-card glass-card reveal" data-delay="150">
+        <div class="about-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h3>The Roots</h3>
+        <p>Born and brought up in the heart of India — <strong>Satna, Madhya Pradesh</strong>. I spent 18 years of my life there, shaped by its warmth, culture, and the stories its streets hold. Satna is not just my hometown; it's a piece of my identity that I carry everywhere.</p>
+        <p>Those years built in me a grounded spirit, a hunger to grow, and the values that guide everything I do.</p>
+      </div>
+      <div class="about-card glass-card reveal" data-delay="300">
+        <div class="about-card-icon"><i class="fas fa-gamepad"></i></div>
+        <h3>The Gamer</h3>
+        <p>When I'm not writing code, you'll find me deep inside virtual worlds. Gaming is where I recharge — the storytelling, the strategy, the raw adrenaline.</p>
+        <p>My go-to universes: <strong>GTA</strong> open-world chaos, the tactical intensity of <strong>COD</strong>, the battle royale rush of <strong>Free Fire</strong>, and any immersive open-world game that lets me lose myself completely.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EDUCATION SECTION ========== -->
+  <section class="education-section" id="education">
+    <div class="section-header reveal">
+      <span class="section-tag">// EDUCATION</span>
+      <h2 class="section-title">My Journey</h2>
+    </div>
+    <div class="edu-grid">
+
+      <!-- Card 1: School -->
+      <div class="edu-card glass-card reveal">
+        <div class="edu-card-img-wrap">
+          <img src="school.jpg" alt="Christukula Mission School" class="edu-img" />
+          <div class="edu-img-overlay"></div>
+        </div>
+        <div class="edu-card-body">
+          <div class="edu-badge">Schooling</div>
+          <h3>Christukula Mission H.S. School</h3>
+          <p class="edu-location"><i class="fas fa-location-dot"></i> Satna, Madhya Pradesh</p>
+          <ul class="edu-details">
+            <li><span>Medium:</span> ICSE</li>
+            <li><span>10th:</span> 85%</li>
+            <li><span>12th:</span> 80% — PCM</li>
+            <li><span>Years:</span> 2008 – 2023</li>
+            <li><span>Status:</span> Passed Out</li>
+          </ul>
+        </div>
+        <div class="edu-card-glow"></div>
+      </div>
+
+      <!-- Card 2: College -->
+      <div class="edu-card glass-card reveal" data-delay="150">
+        <div class="edu-card-img-wrap">
+          <img src="college.jpg" alt="IES College of Technology" class="edu-img" />
+          <div class="edu-img-overlay"></div>
+        </div>
+        <div class="edu-card-body">
+          <div class="edu-badge">College</div>
+          <h3>IES College of Technology</h3>
+          <p class="edu-location"><i class="fas fa-location-dot"></i> Bhopal, Madhya Pradesh</p>
+          <ul class="edu-details">
+            <li><span>Degree:</span> B.Tech — CSE</li>
+            <li><span>CGPA:</span> 8.1</li>
+            <li><span>Status:</span> Currently Studying</li>
+          </ul>
+          <div class="edu-studying-badge"><span class="pulse-dot"></span> Active</div>
+        </div>
+        <div class="edu-card-glow"></div>
+      </div>
+
+      <!-- Card 3: Coming Soon -->
+      <div class="edu-card edu-card--soon glass-card reveal" data-delay="300">
+        <div class="edu-soon-content">
+          <div class="edu-soon-icon">
+            <i class="fas fa-rocket"></i>
+            <div class="soon-ring"></div>
+            <div class="soon-ring soon-ring-2"></div>
+          </div>
+          <h3 class="edu-soon-title">Coming Soon</h3>
+          <p class="edu-soon-sub">The next chapter is being written...</p>
+          <div class="edu-soon-lines">
+            <div class="soon-line"></div>
+            <div class="soon-line"></div>
+            <div class="soon-line"></div>
+          </div>
+        </div>
+        <div class="edu-card-glow glow-purple"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SKILLS SECTION ========== -->
+  <section class="skills-section" id="skills">
+    <div class="section-header reveal">
+      <span class="section-tag">// SKILLS</span>
+      <h2 class="section-title">My Arsenal</h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-icon-wrap">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+        </div>
+        <span class="skill-name">HTML5</span>
+        <div class="skill-glow"></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="80">
+        <div class="skill-icon-wrap">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+        </div>
+        <span class="skill-name">CSS3</span>
+        <div class="skill-glow"></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="160">
+        <div class="skill-icon-wrap">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+        </div>
+        <span class="skill-name">JavaScript</span>
+        <div class="skill-glow"></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="240">
+        <div class="skill-icon-wrap">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+        </div>
+        <span class="skill-name">Java</span>
+        <div class="skill-glow"></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="320">
+        <div class="skill-icon-wrap">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter: invert(1);" />
+        </div>
+        <span class="skill-name">GitHub</span>
+        <div class="skill-glow"></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="400">
+        <div class="skill-icon-wrap">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+        </div>
+        <span class="skill-name">C</span>
+        <div class="skill-glow"></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="480">
+        <div class="skill-icon-wrap">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+        </div>
+        <span class="skill-name">C++</span>
+        <div class="skill-glow"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== QUOTE SECTION ========== -->
+  <section class="quote-section" id="quote">
+    <div class="quote-ambient"></div>
+    <div class="quote-content reveal">
+      <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+      <p class="quote-text" id="quoteText"></p>
+      <span class="quote-author" id="quoteAuthor"></span>
+      <button class="quote-refresh" id="quoteRefresh" aria-label="New quote">
+        <i class="fas fa-rotate-right"></i> New Quote
+      </button>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">HM</div>
+        <p class="footer-tagline">Frontend Developer · Gamer · Explorer</p>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="mailto:harshit.mishra2327@gmail.com" class="footer-link">
+          <i class="fas fa-envelope"></i>
+          <span>harshit.mishra2327@gmail.com</span>
+        </a>
+        <a href="https://github.com/its-hm-2327" target="_blank" rel="noopener" class="footer-link">
+          <i class="fab fa-github"></i>
+          <span>github.com/its-hm-2327</span>
+        </a>
+        <a href="https://www.linkedin.com/in/harshit-mishra-hm2327" target="_blank" rel="noopener" class="footer-link">
+          <i class="fab fa-linkedin-in"></i>
+          <span>linkedin.com/in/harshit-mishra-hm2327</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-line"></div>
+      <p>© 2024 Harshit Mishra. Crafted with <span class="footer-heart">&#9829;</span> &amp; lots of coffee.</p>
+    </div>
+  </footer>
+
+  <!-- Hidden audio element for music -->
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a73467.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
